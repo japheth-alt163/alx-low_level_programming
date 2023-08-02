@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
+/* the more headers goes here */
 #include <stdio.h>
-/* betty style doc for function main goes there */
+/* betty style doc for function main goes here */
 /**
  * main - assigns a random number to int n
  * it executes the program, and prints n
