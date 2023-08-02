@@ -11,17 +11,17 @@
 int main(void)
 {
 	int pass[100];
-	int i, sum, n;
+	int d, sum, n;
 
 	sum = 0;	
 
 	srand(time(NULL));
 
-	for (i = 0; i < 100; i++)
+	for (d = 0; d < 100; d++)
 	{
-		pass[i] = rand() % 78;
-		sum += (pass[i] + '0');
-		putchar(pass[i] + '0');
+		pass[d] = rand() % 78;
+		sum += (pass[d] + '0');
+		putchar(pass[d] + '0');
 		if ((2772 - sum) - '0' < 78)
 		{
 			n = 2772 - sum - '0';
