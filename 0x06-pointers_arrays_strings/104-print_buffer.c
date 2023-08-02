@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * isPrintableASCII - determines if n is a printable ASCII char
+ * isPrintableASCII - it determines if n is a printable ASCII char
  * @n: integer
  * Return: 1 if true, 0 if false
  */
@@ -12,10 +12,10 @@ int isPrintableASCII(int n)
 }
 
 /**
- * printHexes - print hex values for string b in formatted form
- * @b: string to print
- * @start: starting position
- * @end: ending position
+ * printHexes - it print hex values for string b in formatted form
+ * @b: string to be printed
+ * @start: the starting position
+ * @end: the ending position
  */
 void printHexes(char *b, int start, int end)
 {
@@ -32,7 +32,7 @@ void printHexes(char *b, int start, int end)
 		i++;
 	}
 }
-
+h
 /**
  * printASCII - print ascii values for string b,
  * formatted to replace nonprintable chars with '.'
@@ -55,7 +55,7 @@ void printASCII(char *b, int start, int end)
 }
 
 /**
- * print_buffer - prints a buffer
+ * print_buffer - it prints a buffer
  * @b: string
  * @size: size of buffer
  */
