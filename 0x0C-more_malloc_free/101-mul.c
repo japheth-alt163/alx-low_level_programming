@@ -1,95 +1,59 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
-/**
- * _isdigit - Checks if a character is a digit
- * @c: Character to check
- *
- * Return: 1 if c is a digit, 0 otherwise
- */
-int _isdigit(char c)
-{
-    return (c >= '0' && c <= '9');
-}
 
 /**
- * _strlen - Calculates the length of a string
- * @s: String to calculate length of
- *
- * Return: Length of the string
+ * _atoi - it converts a character array to an integer
+ * @s: character array to be converted
+ * Return: returns integer from array, returns 0 if none found
  */
-unsigned int _strlen(char *s)
+int _atoi(char *s)
 {
-    unsigned int len = 0;
-
-    while (s[len] != '\0')
-        len++;
-
-    return len;
+int retval;
+int i;
+int neg;
+i = 0;
+retval = 0;
+neg = -1;
+while (s[i] != '\0' && (s[i] < '0' || s[i] > '9'))
+{
+if (s[i] == '-')
+neg *= -1;
+i++;
 }
-
+while (s[i] != '\0' && (s[i] >= '0' && s[i] <= '9'))
+retval = (retval * 10) - (s[i++] - '0');
+return (retval *neg);
+}
 /**
- * _multiply - Multiplies two positive numbers
- * @num1: First number
- * @num2: Second number
- *
- * Return: Pointer to the result
+ * main - multiplies two positive numbers
+ * @argc: n arguments
+ * @argv: args
+ * Return: int
  */
-char *_multiply(char *num1, char *num2)
-{
-    unsigned int len1, len2, len_res, i, j, carry, product;
-    char *result;
-    len1 = _strlen(num1);
-    len2 = _strlen(num2);
-    len_res = len1 + len2;
-    result = malloc(sizeof(char) * (len_res + 1));
-    if (result == NULL)
-    {
-        printf("Error\n");
-        exit(98);
-    }
-    for (i = 0; i < len_res; i++)
-        result[i] = '0';
-    for (i = len1 - 1; i < len1; i--)
-    {
-        carry = 0;
-        for (j = len2 - 1; j < len2; j--)
-        {
-            product = (num1[i] - '0') * (num2[j] - '0') + carry + (result[i + j + 1] - '0');
-            carry = product / 10;
-            result[i + j + 1] = (product % 10) + '0';
-        }
-        result[i + j + 1] += carry;
-    }
-    return (result);
-}
 int main(int argc, char *argv[])
 {
-    if (argc != 3)
-    {
-        printf("Error\n");
-        return (98);
-    }
-
-    char *num1 = argv[1];
-    char *num2 = argv[2];
-    for (unsigned int i = 0; num1[i]; i++)
-    {
-        if (!_isdigit(num1[i]))
-        {
-            printf("Error\n");
-            return (98);
-        }
-    }
-    for (unsigned int i = 0; num2[i]; i++)
-    {
-        if (!_isdigit(num2[i]))
-        {
-            printf("Error\n");
-            return (98);
-        }
-    }
-    char *result = _multiply(num1, num2);
-    printf("%s\n", result);
-    free(result);
-    return (0);
+int a, b, i, j;
+unsigned long mul;
+if (argc != 3)
+{
+printf("Error\n");
+exit(98);
+}
+for (i = 1; i < argc; i++)
+{
+for (j = 0; argv[i][j] != '\0'; j++)
+{
+if (argv[i][j] > 57 || argv[i][j] < 48)
+{
+printf("Error\n");
+exit(98);
+}
+}
+}
+a = _atoi(argv[1]);
+b = _atoi(argv[2]);
+mul = a *b;
+printf("%lu\n", mul);
+return (0);
 }
