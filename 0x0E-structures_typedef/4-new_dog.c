@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "dog.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
  * new_dog - Creates a new struct dog.
  * @name: The name of the dog.
