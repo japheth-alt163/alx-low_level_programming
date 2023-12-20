@@ -1,0 +1,18 @@
+# Makefile for school executable
+
+# Define the compiler
+CC = gcc
+
+# Define the source files
+SRCS = main.c school.c
+
+# Define the output executable name
+TARGET = school
+
+# Rule to build the executable
+all:
+	$(CC) $(SRCS) -o $(TARGET)
+
+# Rule to clean the generated files
+clean:
+	rm -f $(TARGET)
